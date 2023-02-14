@@ -1,4 +1,5 @@
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
+import userEvent from '@testing-library/user-event'
 import { afterEach, describe, expect, it } from "vitest";
 import Calculator from "../src/Calculator.jsx";
 const numbers = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
@@ -90,16 +91,17 @@ describe("Calculator", () => {
         expect(input.value).toBe("");
     });
 
-    it("should user input after click equal", () => {
+    // click used userEvent instead of fireEvent
+    it("should user input after click equal", async () => {
         render(<Calculator />);
         const input = screen.getByRole("textbox");
         const one = screen.getByText("1");
         const plus = screen.getByText("+");
         const equal = screen.getByText("=");
-        fireEvent.click(one);
-        fireEvent.click(plus);
-        fireEvent.click(one);
-        fireEvent.click(equal);
+        await userEvent.click(one);
+        await userEvent.click(plus);
+        await userEvent.click(one);
+        await userEvent.click(equal);        
         expect(input.value).toBe("2");
     }); 
 });
