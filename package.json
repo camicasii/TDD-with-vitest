@@ -12,11 +12,15 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "vitest": "^0.28.5",
-    "standard": "^17.0.0"
+    "@testing-library/react": "^13.4.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "happy-dom": "^8.3.2",
+    "standard": "^17.0.0",
+    "vitest": "^0.28.5"
   },
   "dependencies": {
-    
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "eslintConfig": {
     "extends": "./node_modules/standard/eslintrc.json"
