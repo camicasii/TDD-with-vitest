@@ -26,6 +26,22 @@ describe("FizzBuzz", () => {
         expect(fizzbuzz(1)).toBe(1);
     });
     it("should return 'Fizz' if number provider is multiple of 3 ", () => {
-        for (let i = 3; i <= 100; i += 3) expect(fizzbuzz(i)).toBe("Fizz");
+         expect(fizzbuzz(3)).toBe("Fizz");
+    });
+
+    it("should return 'Buzz' if number provider is multiple of 5 ", () => {
+        expect(fizzbuzz(5)).toBe("Buzz");
+   });
+
+    
+    it("should return 'FizzBuzz' if number provider is multiple of 5 and 3 ", () => {        
+        expect(fizzbuzz(15)).toBe("FizzBuzz");
+    });
+
+    it("should return 'Woff' if number provider is multiple of 7 ", () => {
+        expect(fizzbuzz(7)).toBe("Woff");
+    });
+    it("should return 'FizzWoff' if number provider is multiple of 7 and 3 ", () => {
+        expect(fizzbuzz(21)).toBe("FizzWoff");
     });
 });
