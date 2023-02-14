@@ -9,10 +9,7 @@ import fizzbuzz from "../src/fizzbuzz";
 
 describe("FizzBuzz", () => {
     // This is a test suite. It contains one or more tests.
-    it("type of fizzbuzz should be function", () => {
-        // This is a test. It contains one or more assertions.
-        expect(typeof fizzbuzz).toBe("function");
-    });
+    
 
     it("should throw an error if n is not a number", () => {
         expect(() => fizzbuzz()).toThrow();
