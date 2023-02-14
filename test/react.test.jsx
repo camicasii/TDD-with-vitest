@@ -1,50 +1,7 @@
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
-import {evaluate}  from "mathjs"
-import { useState } from "react";
 import { afterEach, describe, expect, it } from "vitest";
-
-const number = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-const rows = [
-    ["C", "+/-", "%", "/"],
-    [7, 8, 9, "x"],
-    [4, 5, 6, "-"],
-    [1, 2, 3, "+"],
-    [0, ".", "=", ""],
-];
-
-const Calculator = () => {
-    const [value, setvalue] = useState("");
-    return (
-        <div>
-            <h1>Calculator</h1>
-            <input type="text" role="textbox" value={value} readOnly />
-
-            {rows.map((row) => {
-                return (
-                    <div key={row[0]} role="row">
-                        {row.map((item, i) => {
-                            return (
-                                <button
-                                    key={i}
-                                    role="button"
-                                    type="button"
-                                    onClick={() => {
-                                        if (item === "C") return setvalue("");
-                                        if (item === "=") return setvalue(evaluate(value));
-                                        setvalue(value + item);
-                                    }}
-                                >
-                                    {item}
-                                </button>
-                            );
-                        })}
-                    </div>
-                );
-            })}
-        </div>
-    );
-};
-
+import Calculator from "../src/Calculator.jsx";
+const numbers = [7, 8, 9, 4, 5, 6, 1, 2, 3, 0];
 describe("Calculator", () => {
     afterEach(cleanup);
 
@@ -59,7 +16,7 @@ describe("Calculator", () => {
 
     it("should render number", () => {
         render(<Calculator />);
-        number.forEach((num) => {
+        numbers.forEach((num) => {
             screen.getByText(num);
         });
     });
