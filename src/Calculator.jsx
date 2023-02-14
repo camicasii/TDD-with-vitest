@@ -27,6 +27,7 @@ const Calculator = () => {
                                     role="button"
                                     type="button"
                                     onClick={() => {
+                                        if(item === "x") return setvalue(value + "*" );
                                         if (item === "C") return setvalue("");
                                         if (item === "=") return setvalue(evaluate(value));
                                         setvalue(value + item);
